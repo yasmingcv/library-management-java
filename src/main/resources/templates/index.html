@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Biblioteca Comunitária</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+<h1>Biblioteca Comunitária</h1>
+<nav>
+    <a th:href="@{/livros}">Livros</a> |
+    <a th:href="@{/livros/disponiveis}">Livros Disponíveis</a> |
+    <a th:href="@{/usuarios}">Usuários</a> |
+    <a th:href="@{/emprestimos}">Empréstimos</a>
+</nav>
+</body>
+</html>

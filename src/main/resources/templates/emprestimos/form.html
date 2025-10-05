@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Novo Empréstimo</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+<h1>Novo Empréstimo</h1>
+<form th:object="${emprestimo}" th:action="@{/emprestimos}" method="post">
+    <div>
+        <label>Livro:</label>
+        <select th:field="*{livro}">
+            <option th:each="livro : ${livros}" th:value="${livro.id}" th:text="${livro.titulo}"></option>
+        </select>
+        <span th:errors="*{livro}" class="error"></span>
+    </div>
+    <div>
+        <label>Usuário:</label>
+        <select th:field="*{usuario}">
+            <option th:each="usuario : ${usuarios}" th:value="${usuario.id}" th:text="${usuario.nome}"></option>
+        </select>
+        <span th:errors="*{usuario}" class="error"></span>
+    </div>
+    <div>
+        <label>Data de Retirada:</label>
+        <input type="date" th:field="*{dataRetirada}">
+        <span th:errors="*{dataRetirada}" class="error"></span>
+    </div>
+    <div>
+        <label>Data de Devolução:</label>
+        <input type="date" th:field="*{dataDevolucao}">
+        <span th:errors="*{dataDevolucao}" class="error"></span>
+    </div>
+    <button type="submit">Registrar</button>
+</form>
+<a th:href="@{/emprestimos}">Voltar</a>
+</body>
+</html>

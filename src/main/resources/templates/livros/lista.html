@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Lista de Livros</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+<h1>Lista de Livros</h1>
+<a th:href="@{/livros/novo}">Cadastrar Novo Livro</a>
+<table>
+    <thead>
+    <tr>
+        <th>Título</th>
+        <th>Autor</th>
+        <th>Ano</th>
+        <th>Status</th>
+        <th>Ações</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="livro : ${livros}">
+        <td th:text="${livro.titulo}"></td>
+        <td th:text="${livro.autor}"></td>
+        <td th:text="${livro.anoPublicacao}"></td>
+        <td th:text="${livro.status}"></td>
+        <td>
+            <a th:href="@{/livros/editar/{id}(id=${livro.id})}">Editar</a>
+            <a th:href="@{/livros/excluir/{id}(id=${livro.id})}" onclick="return confirm('Tem certeza?')">Excluir</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<a th:href="@{/}">Voltar</a>
+</body>
+</html>

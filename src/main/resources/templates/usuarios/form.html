@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Cadastro de Usuário</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+<h1>Cadastro de Usuário</h1>
+<form th:object="${usuario}" th:action="@{/usuarios}" method="post">
+    <input type="hidden" th:field="*{id}">
+    <div>
+        <label>Nome:</label>
+        <input type="text" th:field="*{nome}">
+        <span th:errors="*{nome}" class="error"></span>
+    </div>
+    <div>
+        <label>E-mail:</label>
+        <input type="email" th:field="*{email}">
+        <span th:errors="*{email}" class="error"></span>
+    </div>
+    <button type="submit">Salvar</button>
+</form>
+<a th:href="@{/usuarios}">Voltar</a>
+</body>
+</html>
